@@ -7,30 +7,18 @@ interface Post {
 	body: string
 }
 
-export function BlogList() {
+export function BlogList({blog_posts}: {blog_posts: Post[]}) {
 	return (
-		<div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2">
-			<article className="rounded-lg border p-6 m-2">
-				<Link href={'#'} className="block space-y-3">
-					<h2 className="text-xl font-semibold">Title</h2>
-					<p>Body</p>
-					<div className="text-sm">Read more →</div>
-				</Link>
-			</article>
-			<article className="rounded-lg border p-6 m-2">
-				<Link href={'#'} className="block space-y-3">
-					<h2 className="text-xl font-semibold">Title</h2>
-					<p>Body</p>
-					<div className="text-sm">Read more →</div>
-				</Link>
-			</article>
-			<article className="rounded-lg border p-6 m-2">
-				<Link href={'#'} className="block space-y-3">
-					<h2 className="text-xl font-semibold">Title</h2>
-					<p>Body</p>
-					<div className="text-sm">Read more →</div>
-				</Link>
-			</article>
-	</div>
+		<div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 px-10 py-4">
+			{blog_posts.map((blog) => (
+				<article key={blog.id} className="rounded-lg border p-6 m-2 mx-2">
+					<Link href={'#'} className="block space-y-3">
+						<h2 className="text-xl font-semibold underline">{blog.title}</h2>
+						<p>{blog.body}</p>
+						<div className="text-sm">Read more →</div>
+					</Link>
+				</article>
+			))}
+		</div>
 	)
 }
