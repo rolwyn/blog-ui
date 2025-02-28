@@ -143,3 +143,8 @@
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 }
+
+body {
+  background-image: linear-gradient(230deg, #a3b5c7, #ffffff);
+  height: 100%;
+}
